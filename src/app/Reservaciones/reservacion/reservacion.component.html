@@ -1,0 +1,97 @@
+<header>
+    <div class="logo">
+      <img src="assets//logo.png" alt="" />
+    </div>
+    <nav class="">
+      <ul>
+        <li ><a  routerLink="/contenedor"   class="nav_link">Home</a></li>
+        <li ><a  routerLink="/servicio"   class="nav_link">Servicios</a></li>
+        <li ><a  routerLink="/clientes"   class="nav_link">Clientes</a></li>
+        <li><a routerLink="/empleados"   class="nav_link">Empleados</a></li>
+        <li><a href="/reservaciones" class="nav_link">Reservaciones</a></li>
+      </ul>
+    </nav>
+    <div class="log_sesion">
+      <a href="">Cerrar</a>
+      <a href="">Crear Cuenta</a>
+    </div>
+  </header>
+
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <form class="formulario" [formGroup]= "form" (ngSubmit) = "GuardarOActualizar()">
+          <div class="form-group">
+            <div class="input-group">
+             <input type="text" required="true" class="form-control" placeholder="Cliente" name="cliente" 
+             formControlName = "idCliente">
+            </div>
+          
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <select  id="inputState" class="form-control" formControlName = "idPago">
+                <option *ngFor= " let estados of pagos ">{{ estados.estado }} </option>
+              </select>
+             </div>    
+             <div class="input-group mt-2">
+              <select  id="inputState" class="form-control" formControlName = "idEstadoReservacion">
+                <option *ngFor= " let estados of estadosReservacion ">{{ estados.estado }} </option>
+              </select>
+             </div> 
+             <div class="input-group mt-2">
+              <input type="text" class="form-control" placeholder="Fecha agenda" name="contra" formControlName = "fechaAgendada">
+             </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-lg" [disabled]= "!form.valid"  type="submit"> <i class="fas fa-database"></i> Guardar</button>
+          </div>
+         </form>
+      </div>
+      <div class="col-8">
+        <div  class="container mt-3">
+          <input type="text" class="form-control" placeholder="Buscar..." name="filterPost" [(ngModel)] =" filterPost ">
+          <table  class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id Reservacion</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Celular</th>
+                <th>Pago</th>
+                <th>Estado reservacion</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Agendada</th>                
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor = "let reservacion of servicio.lista | filter: filterPost | paginado:page_size:page_number">
+                <td>{{reservacion.idReservacion}}</td>
+                <td>{{reservacion.primerNombre}}</td>
+                <td>{{reservacion.primerApellido}}</td>
+                <td>{{reservacion.celular}}</td>
+                <td>{{reservacion.idPago}}</td>
+                <td>{{reservacion.idEstadoReservacion}}</td>
+                <td>{{reservacion.fechaCreacion | date:'dd-MM-yyyy'}}</td>
+                <td>{{reservacion.fechaAgendada | date:'dd-MM-yyyy'}}</td>
+  
+                <td>
+                  <i  class="far fa-edit fa-lg text-info" (click)= "actualizarReservacion(reservacion)" style="cursor: pointer;"></i>
+                </td>
+                <td>
+                  <i class="far fa-trash-alt fa-lg text-danger" (click)= "eliminarReservacion(reservacion) " style="cursor: pointer;"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <mat-paginator [length]= "servicio.lista.length" 
+          [pageSize]= "page_size" 
+          (page)= "handlePage($event)" >
+          </mat-paginator>
+        </div>
+      </div>    
+      </div>
+    </div>
+

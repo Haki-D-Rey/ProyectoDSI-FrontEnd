@@ -1,0 +1,88 @@
+
+  <header>
+    <div class="logo">
+      <img src="assets//logo.png" alt="" />
+    </div>
+    <nav class="">
+      <ul>
+        <li ><a  routerLink="/contenedor"   class="nav_link">Home</a></li>
+        <li ><a  routerLink="/servicio"   class="nav_link">Servicios</a></li>
+        <li ><a  routerLink="/clientes"   class="nav_link">Clientes</a></li>
+        <li><a routerLink="/empleados"   class="nav_link">Empleados</a></li>
+        <li><a href="/reservaciones" class="nav_link">Reservaciones</a></li>
+      </ul>
+    </nav>
+    <div class="log_sesion">
+      <a href="">Cerrar</a>
+      <a href="">Crear Cuenta</a>
+    </div>
+  </header>
+
+  <body > 
+  <div class="row">
+    <article *ngFor = "let detalleReservacion of servicio.listaDetalle" class="card">
+      <section class="date">
+        <time>
+          <span>{{detalleReservacion.mes}}</span><span>{{detalleReservacion.dia}}</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <h3> {{detalleReservacion.nombreEmpleado+" "+detalleReservacion.apellidoEmpleado}}</h3>
+        <div class="even-date">
+         <i class="fa fa-calendar"></i>
+         <time>
+          <span>{{"Fecha Creación: "}}{{detalleReservacion.fechaCreacion | date:'dd-MM-yyyy'}}</span>
+          <span>{{"Fecha Agendada: "}}{{detalleReservacion.fechaAgendada | date:'dd-MM-yyyy'}}</span>
+         </time>
+        </div>
+        <div class="even-info">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <p>
+            {{"ID reservacion: "+""+detalleReservacion.idReservacion}} <br>
+               {{"Nombre Cliente: "+""+detalleReservacion.nombreCliente+" "+detalleReservacion.apellidoCliente}} <br>
+               {{"Celular Cliente: "+""+detalleReservacion.celular}} <br>
+               {{"Nombre servicio: "+""+detalleReservacion.nombreServicio}} <br>
+               {{"Precio:" +" "+detalleReservacion.precio}} <br>
+               {{"Duración: "+" "+detalleReservacion.duracion}} <br>
+               {{"Método de pago:"+" "+detalleReservacion.idPago}}
+          </p>
+        </div>
+        <a href="#">{{detalleReservacion.idEstadoReservacion}}</a>
+      </section>
+    </article>
+    <article *ngFor = "let detalleReservacion of servicio.listaDetalleFinalizada" class="card">   
+      <section class="date">
+        <time datetime="23th feb">
+          <span>{{detalleReservacion.mes}}</span><span>{{detalleReservacion.dia}}</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <h3> {{detalleReservacion.nombreEmpleado+" "+detalleReservacion.apellidoEmpleado}}</h3>
+        <div class="even-date">
+         <i class="fa fa-calendar"></i>
+         <time>
+          <span>{{"Fecha Creación: "}}{{detalleReservacion.fechaCreacion | date:'dd-MM-yyyy'}}</span>
+          <span>{{"Fecha Agendada: "}}{{detalleReservacion.fechaAgendada | date:'dd-MM-yyyy'}}</span>
+         </time>
+        </div>
+        <div class="even-info">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p>
+            {{"ID reservacion: "+""+detalleReservacion.idReservacion}} <br>
+               {{"Nombre Cliente: "+""+detalleReservacion.nombreCliente+" "+detalleReservacion.apellidoCliente}} <br>
+               {{"Celular Cliente: "+""+detalleReservacion.celular}} <br>
+               {{"Nombre servicio: "+""+detalleReservacion.nombreServicio}} <br>
+               {{"Precio:" +" "+detalleReservacion.precio}} <br>
+               {{"Duración: "+" "+detalleReservacion.duracion}} <br>
+               {{"Método de pago:"+" "+detalleReservacion.idPago}}
+          </p>
+        </div>
+        <a href="#">{{detalleReservacion.idEstadoReservacion}}</a>
+      </section>
+    </article>
+  </div>
+  <div class="row">
+    <article>
+    </article>
+  </div>
+</body>

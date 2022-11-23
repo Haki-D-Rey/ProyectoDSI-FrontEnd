@@ -1,0 +1,132 @@
+#h2{
+    margin-bottom: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    
+  }
+  
+
+ 
+  input{
+    border-radius: 10px;
+  }
+  
+  .btn{
+    border-radius: 10px;
+  }
+  
+  * {
+   
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  header nav ul li a{
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+  }
+  
+  .logo img {
+    width: 250px;
+    height: 15vh;
+  }
+  
+  nav {
+    width: 550px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li a {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: black;
+    padding-bottom: 4px;
+    transition: all 600ms ease-in-out;
+  }
+  
+  .nav_link {
+    color: inherit;
+    margin-right: 50px;
+    position: relative;
+    padding: 16px 0;
+    margin: 0 12px;
+    letter-spacing: 1px;
+    line-height: 16px;
+    font-weight: 700;
+    transition: color 0.1s, backgroud-color 0.1s, padding 0.2s ease-in;
+    color: #ed82af;
+  }
+  
+  .nav_link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #ed82af;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: color 0.1s, transform 0.2s ease-out;
+  }
+  
+  .nav_link:hover::before,
+  .nav_link:focus::before {
+    transform-origin: left top;
+    transform: scale(1.1);
+  }
+  
+  
+  
+  .log_sesion {
+    width: 380px;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .log_sesion a {
+    width: 186px;
+    border: 1px solid #ed82af;
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    color: #ed82af;
+    letter-spacing: 2px;
+    font-size: 20px;
+    transition: all 300ms;
+    
+  }
+  
+  .log_sesion a:hover {
+    background-color: #ed82af;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+
+form{
+  margin-top: 27px;
+}
+
+input{
+  margin-bottom: 5px;
+}
+
+button{
+  width: 100%;
+}
+

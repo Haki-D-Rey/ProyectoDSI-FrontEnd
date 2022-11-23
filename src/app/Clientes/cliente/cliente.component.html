@@ -1,0 +1,86 @@
+
+  <header>
+    <div class="logo">
+      <img src="assets//logo.png" alt="" />
+    </div>
+    <nav class="">
+      <ul>
+        <li ><a  routerLink="/contenedor"   class="nav_link">Home</a></li>
+        <li ><a  routerLink="/servicio"   class="nav_link">Servicios</a></li>
+        <li ><a  routerLink="/clientes"   class="nav_link">Clientes</a></li>
+        <li><a routerLink="/empleados"   class="nav_link">Empleados</a></li>
+        <li><a href="/reservaciones" class="nav_link">Reservaciones</a></li>
+      </ul>
+    </nav>
+    <div class="log_sesion">
+      <a href="" class="ingresar">Cerrar</a>
+      <a href=""  class="crear">Crear Cuenta</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <form class="formulario" [formGroup]= "form" (ngSubmit) = "GuardarOActualizar()">
+          <div class="form-group">
+            <div class="input-group">
+             <input type="text"  class="form-control" placeholder="Primer Nombre" name="primerNombre" id="primerNombre" 
+             formControlName = "primerNombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+             <input type="text" class="form-control" placeholder="Segundo Nombre" name="contra" >
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Primer Apellido" name="contra" formControlName = "primerApellido" required>
+             </div>
+             <div class="input-group">
+              <input type="text" class="form-control" placeholder="Segundo Apellido" name="contra" >
+             </div>
+             <div class="input-group">
+              <input type="text" class="form-control" [maxlength]="8" [minlength]="8"  placeholder="Celular" name="contra" formControlName = "celular" required>
+             </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-lg" [disabled]= "!form.valid"  type="submit"> <i class="fas fa-database"></i> Guardar</button>
+          </div>
+         </form>
+      </div>
+      <div class="col-8">
+        <div  class="container mt-3">
+          <input type="text" class="form-control" placeholder="Buscar..." name="filterPost" [(ngModel)] =" filterPost ">
+          <table  class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id cliente</th>
+                <th>Primer Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Celular</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor = "let cliente of servicio.lista | filter: filterPost | paginado:page_size:page_number">
+                <td>{{cliente.idCliente}}</td>
+                <td>{{cliente.primerNombre}}</td>
+                <td>{{cliente.primerApellido}}</td>
+                <td>{{cliente.celular}}</td>
+                <td>
+                  <i  class="far fa-edit fa-lg text-info" (click)= "actualizarCliente(cliente)" style="cursor: pointer;"></i>
+                </td>
+                <td>
+                  <i class="far fa-trash-alt fa-lg text-danger" (click)= "eliminarCliente(cliente) " style="cursor: pointer;"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <mat-paginator [length]= "servicio.lista.length" 
+          [pageSize]= "page_size" 
+          (page)= "handlePage($event)" >
+          </mat-paginator>
+       
+        </div>
+      </div>    
+      </div>
+    </div>
+ 

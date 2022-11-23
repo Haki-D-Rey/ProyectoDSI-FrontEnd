@@ -1,0 +1,42 @@
+
+  <header>
+    <div class="logo">
+      <img src="assets//logo.png" alt="" />
+    </div>
+    <nav>
+      <ul>
+      </ul>
+    </nav>
+    <div class="log_sesion">
+      <a href="">Ingresa</a>
+      <a href="">Crear Cuenta</a>
+    </div>
+  </header>
+
+ <div class="container mt-5 align-items-center">
+    <div class="row">
+      <div class="col p-5 rounded">
+        <h2  id= "h2" class="text-center">Bienvenido</h2>
+        <form action="#"  [formGroup]= "form" (ngSubmit) = "Entrar()">
+          <div class="mb-4" id="padre">
+            <input  type="text" name="b" formControlName="usuario" class="form-control" placeholder="Ingrese su usuario" name="" id=""> 
+          </div>
+          <div class="mb-4">
+            <input type="password" formControlName="contraseña" class="form-control" placeholder="Ingrese su contraseña" name="" id="">
+          </div>
+          <div class="mb-4">
+          <input type="checkbox" name="recordarme" class="form-check-input" name="" id="">
+          <label for="recordarme" class="form-check-label" >Recordarme</label>
+          </div>
+          <div class="d-grid">
+            <button type="submit" id="boton" [disabled]= "!form.valid" class="btn btn-primary">Entrar</button>
+          </div>
+          <div class="my-3">
+            <span>¿No tienescuenta? <a href="#">Regístrate</a></span> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+ 
